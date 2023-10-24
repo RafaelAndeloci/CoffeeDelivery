@@ -9,8 +9,11 @@ import {
 } from '@phosphor-icons/react'
 
 import { CoffeeItem } from '../components/CoffeeItem'
+import { useProducts } from '../hooks/useProduct'
 
 export function Index() {
+  const { data: products } = useProducts()
+  
   return (
     <div>
       <div className="relative mx-auto max-w-[1440px]">
@@ -76,25 +79,13 @@ export function Index() {
           </h2>
 
           <ul className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 md:grid-cols-4">
-            <CoffeeItem
-              id={1}
-              name={'Expresso Tradicional'}
-              description={
-                'O tradicional café feito com água quente e grãos moídos'
-              }
-              price={3.5}
-              category={['tradicional']}
-              imageUrl="/images/expresso.png"
-            />
-
-            <CoffeeItem
-              id={2}
-              name={'Expresso Americano'}
-              description={'Expresso diluído, menos intenso que o tradicional'}
-              price={3.5}
-              category={['tradicional']}
-              imageUrl={'/images/americano.png'}
-            />
+            {products ? (
+              products.map(product => (
+                <CoffeeItem key={product.id} {...product}/>
+              ))
+            ) : (
+              <p>Carregando...</p>
+            )}
           </ul>
         </section>
       </div>
