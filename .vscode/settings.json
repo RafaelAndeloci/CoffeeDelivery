@@ -1,0 +1,11 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  "cSpell.language": "en,pt",
+  "cSpell.dictionaries": ["en_US", "pt_BR"],
+
+  "workbench.startupEditor": "readme",
+
+  "typescript.tsdk": "node_modules\\typescript\\lib"
+}

@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:focus-visible {
+  outline: 2px solid theme(colors.yellow.DEFAULT);
+  outline-offset: 2px;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
