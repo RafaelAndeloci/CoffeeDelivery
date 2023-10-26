@@ -2,8 +2,9 @@ import { Trash } from '@phosphor-icons/react'
 
 import { Quantity } from './Quantity'
 import { Button } from './Button'
+import { CartItem as CartItemProps } from '../@types/CartItem'
 
-export function CartItem(props: any) {
+export function CartItem(props: Omit<CartItemProps, 'id'>) {
   return (
     <div className="flex items-center gap-5">
       <img
@@ -28,7 +29,7 @@ export function CartItem(props: any) {
         </div>
 
         <div className="flex items-center gap-2 text-base-subtitle">
-          <Quantity />
+          <Quantity defaultValue={props.quantity} />
           <Button type="button" variant="secondary">
             <Trash size={16} fill="inherit" />
             Remover
