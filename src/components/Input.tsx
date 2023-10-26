@@ -1,6 +1,11 @@
 import { cn } from '../utils/cn'
 
-export function Input({ optional, error, className, ...props }: any) {
+interface InputProps extends React.ComponentProps<'input'> {
+  error?: React.ReactNode
+  optional?: boolean
+}
+
+export function Input({ optional, error, className, ...props }: InputProps) {
   return (
     <div className={cn('relative inline', className)}>
       <input
@@ -13,7 +18,7 @@ export function Input({ optional, error, className, ...props }: any) {
           Opcional
         </span>
       )}
-      {error && (
+      {Boolean(error) && (
         <p className="mt-2 pl-[0.125rem] text-xs text-yellow-dark" role="alert">
           {error}
         </p>
