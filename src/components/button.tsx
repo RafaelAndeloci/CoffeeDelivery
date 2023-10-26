@@ -8,7 +8,11 @@ const variants = {
   icon: 'p-2 text-[1.375rem] text-base-card bg-purple-dark hover:bg-purple',
 }
 
-export function Button({ variant = 'primary', className, ...props }: any) {
+interface ButtonProps extends React.ComponentProps<'button'> {
+  variant?: keyof typeof variants
+}
+
+export function Button({ variant = 'primary', className, ...props }: ButtonProps) {
   return (
     <button
       className={cn(
